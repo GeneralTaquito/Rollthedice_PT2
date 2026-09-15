@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class Dice_Script : MonoBehaviour
 {
-    [Header ("Config throwing")]
-    bool Holding = false;
+    //Throwing section of this script is from an older project
+    [Header("Config throwing")]
     public float throwforce = 400f;
+
+
+    bool Holding = false;
     float MaxDistance = 3f;
     float distance;
+    public bool ScoredDice = false;
 
     TempParent_Script TempParent;
     Rigidbody rb;
 
     Vector3 objectpos;
+    public Vector3 diceVelocity;
 
     void Start()
     {
@@ -21,6 +26,7 @@ public class Dice_Script : MonoBehaviour
 
     void Update()
     {
+        diceVelocity = rb.linearVelocity;
         if (Holding)
         {
             Hold();
@@ -44,7 +50,7 @@ public class Dice_Script : MonoBehaviour
         }
         else
         {
-            Debug.Log("Temp player??");
+            Debug.Log("Temp parent??");
         }
     }
 
